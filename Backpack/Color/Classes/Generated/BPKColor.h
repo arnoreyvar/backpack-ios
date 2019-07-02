@@ -28,6 +28,11 @@ NS_ASSUME_NONNULL_BEGIN
 */
 NS_SWIFT_NAME(Color) @interface BPKColor : NSObject
 
+/**
+ * The default color for Backpack text.
+*/
+@property(nonatomic, class, readonly) UIColor * label;
+
 ///-----------------------
 /// @name Colors
 ///-----------------------

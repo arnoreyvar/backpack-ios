@@ -100,11 +100,24 @@ NS_ASSUME_NONNULL_BEGIN
     }
 }
 
+- (void)traitCollectionDidChange:(UITraitCollection *_Nullable)previousTraitCollection {
+    [super traitCollectionDidChange:previousTraitCollection];
+
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
+    if (@available(iOS 13.0, *)) {
+        UITraitCollection *traitCollection = [UITraitCollection currentTraitCollection];
+        if ([previousTraitCollection hasDifferentColorAppearanceComparedToTraitCollection:traitCollection]) {
+            [self updateTextStyle];
+        }
+    }
+#endif
+}
+
 #pragma mark - Private
 
 - (void)setupWithStyle:(BPKFontStyle)style {
     self.fontStyle = style;
-    self.textColor = BPKColor.gray700;
+    self.textColor = BPKColor.label;
 }
 
 @end

@@ -292,6 +292,17 @@
   return UIColor.clearColor;
 }
 
++ (UIColor *) label {
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
+    if (@available(iOS 13.0, *)) {
+        if (UITraitCollection.currentTraitCollection.userInterfaceStyle == UIUserInterfaceStyleDark){
+          return BPKColor.white;
+        }
+    }
+#endif
+    return BPKColor.gray700;
+}
+
 + (UIColor *)blend:(UIColor*)firstColor with:(UIColor*)secondColor weight:(double)weight {
     double secondColorWeight = 1.0f - weight;
 
