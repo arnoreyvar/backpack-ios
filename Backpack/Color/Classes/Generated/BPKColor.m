@@ -293,14 +293,18 @@
 }
 
 + (UIColor *) label {
+    return [BPKColor colorForUserInterfaceStyleWithLightVariant:BPKColor.gray700 darkVariant:BPKColor.white];
+}
+
++ (UIColor *)colorForUserInterfaceStyleWithLightVariant:(UIColor *)lightColor darkVariant:(UIColor*)darkColor {
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
     if (@available(iOS 13.0, *)) {
         if (UITraitCollection.currentTraitCollection.userInterfaceStyle == UIUserInterfaceStyleDark){
-          return BPKColor.white;
+            return darkColor;
         }
     }
 #endif
-    return BPKColor.gray700;
+    return lightColor;
 }
 
 + (UIColor *)blend:(UIColor*)firstColor with:(UIColor*)secondColor weight:(double)weight {

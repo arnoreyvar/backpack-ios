@@ -520,6 +520,8 @@ NS_SWIFT_NAME(Color) @interface BPKColor : NSObject
  */
 + (UIColor *)blend:(UIColor*)firstColor with:(UIColor*)secondColor weight:(double)weight;
 
++ (UIColor *)colorForUserInterfaceStyleWithLightVariant:(UIColor *)lightColor darkVariant:(UIColor *)darkColor;
+
 @end
 NS_ASSUME_NONNULL_END
 // clang-format on
