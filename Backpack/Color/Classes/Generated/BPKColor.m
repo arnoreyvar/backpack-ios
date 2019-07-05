@@ -17,6 +17,7 @@
  * limitations under the License.
  */
 #import "BPKColor.h"
+#import <Backpack/DarkMode.h>
 
 @implementation BPKColor
 
@@ -297,7 +298,7 @@
 }
 
 + (UIColor *)colorForUserInterfaceStyleWithLightVariant:(UIColor *)lightColor darkVariant:(UIColor*)darkColor {
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
+#if __BPK_COMPILING_WITH_DARK_MODE
     if (@available(iOS 13.0, *)) {
         if (UITraitCollection.currentTraitCollection.userInterfaceStyle == UIUserInterfaceStyleDark){
             return darkColor;

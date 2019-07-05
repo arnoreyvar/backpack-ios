@@ -18,6 +18,7 @@
 #import "BPKLabel.h"
 #import <Backpack/Color.h>
 #import <Backpack/Common.h>
+#import <Backpack/DarkMode.h>
 
 NS_ASSUME_NONNULL_BEGIN
 @interface BPKLabel ()
@@ -103,7 +104,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)traitCollectionDidChange:(UITraitCollection *_Nullable)previousTraitCollection {
     [super traitCollectionDidChange:previousTraitCollection];
 
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
+#if __BPK_COMPILING_WITH_DARK_MODE
     if (@available(iOS 13.0, *)) {
         UITraitCollection *traitCollection = [UITraitCollection currentTraitCollection];
         if ([previousTraitCollection hasDifferentColorAppearanceComparedToTraitCollection:traitCollection]) {
