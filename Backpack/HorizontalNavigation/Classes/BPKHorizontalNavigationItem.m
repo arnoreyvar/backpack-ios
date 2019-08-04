@@ -151,18 +151,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)updateInsets {
     if (self.iconName == nil) {
-        self.titleEdgeInsets = UIEdgeInsetsMake(self.verticalSpacing, self.horizontalSpacing, self.verticalSpacing, self.horizontalSpacing);
+        self.titleEdgeInsets = UIEdgeInsetsMake(self.verticalSpacing, self.horizontalSpacing, self.verticalSpacing,
+                                                self.horizontalSpacing);
         return;
     }
 
     CGFloat horizontalInset = self.horizontalSpacing / 2.0;
-    CGFloat verticalInset = self.verticalSpacing / 2.0;
 
     if ([BPKRTLSupport viewIsRTL:self]) {
-        self.imageEdgeInsets = UIEdgeInsetsMake(0,horizontalInset,0,0);
+        self.imageEdgeInsets = UIEdgeInsetsMake(0, horizontalInset, 0, 0);
         self.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 0, horizontalInset);
     } else {
-        self.imageEdgeInsets = UIEdgeInsetsMake(0,0,0,horizontalInset);
+        self.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, horizontalInset);
         self.titleEdgeInsets = UIEdgeInsetsMake(0, horizontalInset, 0, 0);
     }
 }
