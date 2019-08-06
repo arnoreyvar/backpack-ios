@@ -175,6 +175,12 @@ NS_ASSUME_NONNULL_BEGIN
     self.halfStarView.hidden = self.state != BPKStarStateHalf;
 }
 
+- (void)setSemanticContentAttribute:(UISemanticContentAttribute)aSemanticContentAttribute {
+    [super setSemanticContentAttribute:aSemanticContentAttribute];
+
+    [self.halfStarView setSemanticContentAttribute:aSemanticContentAttribute];
+}
+
 @end
 
 NS_ASSUME_NONNULL_END

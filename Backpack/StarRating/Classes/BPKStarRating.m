@@ -122,6 +122,8 @@ static NSUInteger const MAX_RATING = 5;
         if ([self.stackView.arrangedSubviews[starIndex] isKindOfClass:[BPKStar class]]) {
             BPKStar *star = self.stackView.arrangedSubviews[starIndex];
 
+            [star setSemanticContentAttribute:self.stackView.semanticContentAttribute];
+
             float rest = self.rating - starIndex;
             if (starIndex + 1.0f <= self.rating) {
                 star.state = BPKStarStateFull;
@@ -144,6 +146,12 @@ static NSUInteger const MAX_RATING = 5;
     }
 
     [self setNeedsLayout];
+}
+
+- (void)setSemanticContentAttribute:(UISemanticContentAttribute)aSemanticContentAttribute {
+    [super setSemanticContentAttribute:aSemanticContentAttribute];
+
+    [self.stackView setSemanticContentAttribute:aSemanticContentAttribute];
 }
 
 @end
